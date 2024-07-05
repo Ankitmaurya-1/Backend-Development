@@ -4,18 +4,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>All Users</title>
+        <title>All Users page</title>
         <link rel="stylesheet" href="/stylesheets/style.css">
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
     <body>
-        <div class="w-full h-full bg-zinc-900 p-10 text-white">
-            <div class="bav mb-10">
+        <div class="min-h-screen bg-zinc-900 p-10 text-white">
+            <div class="nav mb-10">
                 <a class="text-blue-500" href="/">Back To Home</a>
             </div>
             <h1 class="text-3xl tracking-tighter mb-4">All Users</h1>
-            <div class="users flex gap-2">
+            <div class="users flex gap-2 flex-wrap">
                 <% users.forEach(function(user){ %>
                     <div class="user w-72 p-5 bg-zinc-800 rounded-lg">
                         <div class="w-full h-72 rounded-lg bg-zinc-700 overflow-hidden">
@@ -29,7 +29,7 @@
                         </h5>
                         <div class="flex gap-6 mt-5">
 
-                            <a href="" class="text-zinc-300">Edit User</a>
+                            <a href="/edit/<%= user._id %>" class="text-zinc-300">Edit User</a>
                             <a href="/delete/<%= user._id %>" class="text-red-500">Delete User</a>
                         </div>
                     </div>
