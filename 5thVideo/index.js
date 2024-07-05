@@ -24,7 +24,6 @@ app.post('/create', (req, res) => {
 
     fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.details, (err) => {
         if (err) throw err;
-        console.log('The file has been saved!');
 
         res.redirect('/');
     });
@@ -40,6 +39,13 @@ app.get('/edit/:filename', (req, res) => {
 });
 app.post('/edit', (req, res) => {
     fs.rename(`./files/${req.body.previous}`, `./files/${req.body.new}`, (err) => {
+        res.redirect('/');
+    });
+});
+app.get('/delete/:filename', (req, res) => {
+    fs.unlink(`./files/${req.params.filename}`, (err) => {
+        if (err) throw err;
+
         res.redirect('/');
     });
 });
