@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const fs = require('fs');
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+
 
 
 
@@ -26,6 +26,11 @@ app.post('/create', (req, res) => {
         res.redirect('/');
     });
 
+});
+app.get('/file/:filename', (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`, "utf-8", (err, filedata) => {
+        res.render("show", { filename: req.params.filename, filedata: filedata });
+    });
 });
 
 app.listen(3000, (req, res) => {
