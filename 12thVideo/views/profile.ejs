@@ -39,7 +39,7 @@
                                 <a class="text-blue-400" href="/like/<%= post._id %>">
                                     <%= post.likes.indexOf(user._id)===-1 ? "like" : "unlike" %>
                                 </a>
-                                <a class="text-gray-400" href="">edit</a>
+                                <a class="text-gray-400" href="/edit/<%= post._id %>">edit</a>
                             </div>
                             <!-- Modify the delete link to a form with POST method -->
                             <form action="/delete-post/<%= post._id %>" method="POST"
