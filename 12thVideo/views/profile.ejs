@@ -32,20 +32,20 @@
                             <p class="text-sm tracking-tight">
                                 <%= post.content %>
                             </p>
-                            <div class="flex gap-4 mt-3 text-md">
-                                <a class="text-blue-400" href="">Like</a>
+                            <small class="mt-2 inline-block">
+                                <%= post.likes.length %> likes
+                            </small>
+                            <div class="flex gap-4 mt-1 text-md">
+                                <a class="text-blue-400" href="/like/<%= post._id %>">
+                                    <%= post.likes.indexOf(user._id)===-1 ? "like" : "unlike" %>
+                                </a>
                                 <a class="text-gray-400" href="">edit</a>
-
                             </div>
                             <!-- Modify the delete link to a form with POST method -->
                             <form action="/delete-post/<%= post._id %>" method="POST"
                                 onsubmit="return confirm('Are you sure you want to delete this post?');">
                                 <button type="submit" class="text-red-400 mt-3">Delete</button>
                             </form>
-
-
-
-
                         </div>
                         <% }) %>
                 </div>
